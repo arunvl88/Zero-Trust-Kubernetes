@@ -48,12 +48,12 @@ While these steps provide a general guide, refer to the official Kubernetes docu
 
 ## 1. System Updates and Verification (Commands 1-7, 37):
 
-sudo apt update && sudo apt dist-upgrade (1): Updates the package lists and upgrades existing packages.
-cd /etc/netplan/ (3): Changes directory to the network configuration directory.
-ls (4): Lists files in the current directory (useful for verification).
-cat 50-cloud-init.yaml (5): Displays the contents of the cloud-init network configuration file (optional).
-cat /etc/hostname (6, 7): Shows the hostname of the machine (useful for verification).
-sudo apt update (37): Updates the package lists again (might be needed after adding new repositories).
+* sudo apt update && sudo apt dist-upgrade (1): Updates the package lists and upgrades existing packages.
+* cd /etc/netplan/ (3): Changes directory to the network configuration directory.
+* ls (4): Lists files in the current directory (useful for verification).
+* cat 50-cloud-init.yaml (5): Displays the contents of the cloud-init network configuration file (optional).
+* cat /etc/hostname (6, 7): Shows the hostname of the machine (useful for verification).
+* sudo apt update (37): Updates the package lists again (might be needed after adding new repositories).
 Explanation:
 
 This section ensures your system is up-to-date and verifies the hostname configuration.
