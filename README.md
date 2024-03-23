@@ -61,34 +61,37 @@ This section ensures your system is up-to-date and verifies the hostname configu
 
 ## 2. Qemu Guest Agent Installation and Verification (Commands 8-12):
 
-* sudo apt install qemu-guest-agent (8): Installs the Qemu Guest Agent for improved communication between the virtual machine and Proxmox VE.
-* dpkg -l | grep qemu-guest-agent (9): Checks the installation status of the Qemu Guest Agent.
-* sudo systemctl start qemu-guest-agent (10): Starts the Qemu Guest Agent service.
-* sudo systemctl enable qemu-guest-agent (11): Enables the Qemu Guest Agent service to start automatically on boot.
-* sudo systemctl status qemu-guest-agent (12): Checks the status of the Qemu Guest Agent service.
+* `sudo apt install qemu-guest-agent` (8): Installs the Qemu Guest Agent for improved communication between the virtual machine and Proxmox VE.
+* `dpkg -l | grep qemu-guest-agent` (9): Checks the installation status of the Qemu Guest Agent.
+* `sudo systemctl start qemu-guest-agent` (10): Starts the Qemu Guest Agent service.
+* `sudo systemctl enable qemu-guest-agent` (11): Enables the Qemu Guest Agent service to start automatically on boot.
+* `sudo systemctl status qemu-guest-agent` (12): Checks the status of the Qemu Guest Agent service.
+  
 Explanation:
 
 This section installs and configures the Qemu Guest Agent to enhance communication and monitoring within the Proxmox VE environment.
 
 ## 3. Containerd Installation and Configuration (Commands 13-18):
 
-* sudo apt install containerd (13): Installs the containerd runtime, a core component for managing container images.
-* systemctl status containerd (14): Checks the status of the containerd service.
-* sudo mkdir /etc/containerd (15): Creates a directory for containerd configuration files (if it doesn't exist).
-* containerd config default | sudo tee /etc/containerd/config.toml (16): Generates a default containerd configuration file.
-* ls -l /etc/containerd/ (17): Lists files in the containerd configuration directory (useful for verification).
-* sudo nano /etc/containerd/config.toml (18): Opens the containerd configuration file for editing (optional, advanced configuration).
+* `sudo apt install containerd` (13): Installs the containerd runtime, a core component for managing container images.
+* `systemctl status containerd` (14): Checks the status of the containerd service.
+* `sudo mkdir /etc/containerd` (15): Creates a directory for containerd configuration files (if it doesn't exist).
+* `containerd config default | sudo tee /etc/containerd/config.toml` (16): Generates a default containerd configuration file.
+* `ls -l /etc/containerd/` (17): Lists files in the containerd configuration directory (useful for verification).
+* `sudo nano /etc/containerd/config.toml` (18): Opens the containerd configuration file for editing (optional, advanced configuration).
+
 Explanation:
 
 This section installs and configures containerd, which is essential for running containerized applications like Kubernetes.
 
 ## 4. System Configuration for Kubernetes (Commands 22-26):
 
-sudo nano /etc/sysctl.conf (22): Opens the system control file for editing (optional, advanced network configuration for Kubernetes).
-cat /etc/sysctl.conf (23): Displays the contents of the system control file (optional, verification).
-sudo nano /etc/modules-load.d/ (24): Changes directory to the kernel modules directory.
-sudo nano /etc/modules-load.d/k8s.conf (25): Creates a new file named k8s.conf to load required kernel modules for Kubernetes (optional, might be pre-configured).
-sudo reboot (26): Reboots the system to apply any configuration changes.
+* `sudo nano /etc/sysctl.conf` (22): Opens the system control file for editing (optional, advanced network configuration for Kubernetes).
+* `cat /etc/sysctl.conf` (23): Displays the contents of the system control file (optional, verification).
+* `sudo nano /etc/modules-load.d/` (24): Changes directory to the kernel modules directory.
+* `sudo nano /etc/modules-load.d/k8s.conf` (25): Creates a new file named k8s.conf to load required kernel modules for Kubernetes (optional, might be pre-configured).
+* `sudo reboot` (26): Reboots the system to apply any configuration changes.
+
 Explanation:
 
 This section might involve optional configuration steps for the kernel and system controls to optimize the environment for Kubernetes.
@@ -96,11 +99,12 @@ This section might involve optional configuration steps for the kernel and syste
 
 ## 5. Adding Kubernetes Repository and Installing Packages (Commands 38, 45-47, 51-52):
 
-cat /etc/os-release (38): Displays the operating system release information (useful for verification).
-curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg (45): Downloads the GPG key to verify the authenticity of Kubernetes packages.
-echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list (46): Adds the official Kubernetes repository to your system's package sources list.
-sudo apt update (47, 51): Updates the package lists to include Kubernetes packages after adding the new repository.
-sudo apt install -y kubeadm=1.28.1-1.1 kubelet=1.28.1-1.1 kubectl=1.28.1-1.1 (52): Installs the required Kubernetes packages: kubeadm (for initializing the Kubernetes control plane), kubelet (for running containers on the node), and kubectl (for managing the Kubernetes cluster).
+* `cat /etc/os-release` (38): Displays the operating system release information (useful for verification).
+* `curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg` (45): Downloads the GPG key to verify the authenticity of Kubernetes packages.
+* `echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list` (46): Adds the official Kubernetes repository to your system's package sources list.
+* `sudo apt update` (47, 51): Updates the package lists to include Kubernetes packages after adding the new repository.
+* `sudo apt install -y kubeadm=1.28.1-1.1 kubelet=1.28.1-1.1 kubectl=1.28.1-1.1` (52): Installs the required Kubernetes packages: kubeadm (for initializing the Kubernetes control plane), kubelet (for running containers on the node), and kubectl (for managing the Kubernetes cluster).
+
 
 
 
