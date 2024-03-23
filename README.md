@@ -60,23 +60,23 @@ This section ensures your system is up-to-date and verifies the hostname configu
 
 ## 2. Qemu Guest Agent Installation and Verification (Commands 8-12):
 
-sudo apt install qemu-guest-agent (8): Installs the Qemu Guest Agent for improved communication between the virtual machine and Proxmox VE.
-dpkg -l | grep qemu-guest-agent (9): Checks the installation status of the Qemu Guest Agent.
-sudo systemctl start qemu-guest-agent (10): Starts the Qemu Guest Agent service.
-sudo systemctl enable qemu-guest-agent (11): Enables the Qemu Guest Agent service to start automatically on boot.
-sudo systemctl status qemu-guest-agent (12): Checks the status of the Qemu Guest Agent service.
+* sudo apt install qemu-guest-agent (8): Installs the Qemu Guest Agent for improved communication between the virtual machine and Proxmox VE.
+* dpkg -l | grep qemu-guest-agent (9): Checks the installation status of the Qemu Guest Agent.
+* sudo systemctl start qemu-guest-agent (10): Starts the Qemu Guest Agent service.
+* sudo systemctl enable qemu-guest-agent (11): Enables the Qemu Guest Agent service to start automatically on boot.
+* sudo systemctl status qemu-guest-agent (12): Checks the status of the Qemu Guest Agent service.
 Explanation:
 
 This section installs and configures the Qemu Guest Agent to enhance communication and monitoring within the Proxmox VE environment.
 
 ## 3. Containerd Installation and Configuration (Commands 13-18):
 
-sudo apt install containerd (13): Installs the containerd runtime, a core component for managing container images.
-systemctl status containerd (14): Checks the status of the containerd service.
-sudo mkdir /etc/containerd (15): Creates a directory for containerd configuration files (if it doesn't exist).
-containerd config default | sudo tee /etc/containerd/config.toml (16): Generates a default containerd configuration file.
-ls -l /etc/containerd/ (17): Lists files in the containerd configuration directory (useful for verification).
-sudo nano /etc/containerd/config.toml (18): Opens the containerd configuration file for editing (optional, advanced configuration).
+* sudo apt install containerd (13): Installs the containerd runtime, a core component for managing container images.
+* systemctl status containerd (14): Checks the status of the containerd service.
+* sudo mkdir /etc/containerd (15): Creates a directory for containerd configuration files (if it doesn't exist).
+* containerd config default | sudo tee /etc/containerd/config.toml (16): Generates a default containerd configuration file.
+* ls -l /etc/containerd/ (17): Lists files in the containerd configuration directory (useful for verification).
+* sudo nano /etc/containerd/config.toml (18): Opens the containerd configuration file for editing (optional, advanced configuration).
 Explanation:
 
 This section installs and configures containerd, which is essential for running containerized applications like Kubernetes.
