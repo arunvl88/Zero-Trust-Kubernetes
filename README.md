@@ -21,7 +21,7 @@ Refer to the official Proxmox documentation (https://www.proxmox.com/en/proxmox-
 ## Creating an Ubuntu Template and Building a Kubernetes Cluster (Referencing YouTube Videos)
 This section outlines the process for creating a Ubuntu template and building a Kubernetes cluster on your Proxmox VE lab, referencing helpful YouTube videos. However, we'll delve deeper into specific commands and address any outdated information found in those videos.
 
-# Important Note:
+## Important Note:
 
 While YouTube videos can be a valuable resource, it's crucial to reference the official Kubernetes documentation (https://kubernetes.io/docs/home/) for the most up-to-date and reliable information.
 Creating a Ubuntu Template:
@@ -32,9 +32,9 @@ Creating a Ubuntu Template:
 
 3. Template Creation: Once prepared, convert the customized Ubuntu image into a Proxmox VE template for easy deployment of worker nodes in your Kubernetes cluster. Utilize the Proxmox VE web interface or command-line tools for template creation.
 
-# Building a Kubernetes Cluster:
+## Building a Kubernetes Cluster:
 
-# YouTube Video References:
+## YouTube Video References:
 
 . Building a Ubuntu Template: https://www.youtube.com/watch?v=MJgIm03Jxdo by Learn Linux TV (https://www.youtube.com/@LearnLinuxTV)
 . Building a Kubernetes Cluster: https://m.youtube.com/watch?v=Ro2qeYeisZQ (This video requires enabling desktop mode first)
