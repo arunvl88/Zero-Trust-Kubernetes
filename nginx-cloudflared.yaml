@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-with-tunnel
+spec:
+  replicas: 1  # Number of replicas for high availability
+  selector:
+    matchLabels:
+      app: nginx-with-tunnel
+  template:
+    metadata:
+      labels:
+        app: nginx-with-tunnel
+    spec:
+      containers:
+      - name: nginx
+        image: linuxserver/nginx
+        ports:
+        - containerPort: 80
+          name: http
+      - name: cloudflared
+        image: cloudflare/cloudflared:latest  # Cloudflare tunnel injector
+        command: ["cloudflared", "tunnel", "run", "--token", "tunnel_token_provided_by_cloudflare"]
+
+        
