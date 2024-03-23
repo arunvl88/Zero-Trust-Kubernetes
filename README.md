@@ -47,8 +47,19 @@ This section details the steps to install and configure Kubernetes on the contro
 While these steps provide a general guide, refer to the official Kubernetes documentation (https://kubernetes.io/docs/home/) for the most up-to-date and reliable information.
 1. System Updates and Verification:
 
-Update the package lists and upgrade existing packages:
-Markdown
 sudo apt update && sudo apt dist-upgrade
-Use code with caution.
+
+* (Optional) Verify the system hostname:
+
+```markdown
+
+cat /etc/hostname
+
+**2. Qemu Guest Agent Installation and Verification:**
+
+* Install the Qemu Guest Agent for improved communication with Proxmox VE:
+
+```markdown
+
+
 
