@@ -14,6 +14,7 @@ Home Kubernetes lab exposed to public via Cloudflare Tunnel
 
 Example: A pod might contain a web server container and a database container that work together to run a web application. In our case pod contains two containers nginx web server and cloudflared tunnel to expose the nginx web server publicly.
 
-## Installing Proxmox VE on Dell Precision T3660 Server
+## Installing Proxmox VE on Dell Precision 3660 Server
 
-Refer to the official Proxmox documentation (https://www.proxmox.com/en/proxmox-virtual-environment/get-started) for detailed and up-to-date installation instructions.
+Refer to the official Proxmox documentation (https://www.proxmox.com/en/proxmox-virtual-environment/get-started) for detailed and up-to-date installation instructions. The hardware server I'm using comes with 16Gig RAM and 1TB hard disk which is more than enough for home Kubernetes lab.
+
