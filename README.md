@@ -94,6 +94,12 @@ This section installs and configures containerd, which is essential for running 
 ## 4. System Configuration for Kubernetes (Commands 22-26):
 
 * `sudo nano /etc/sysctl.conf` (22): Opens the system control file for editing (optional, advanced network configuration for Kubernetes).
+  Within that file, look for the following line:
+
+#net.ipv4.ip_forward=1
+Uncomment that line by removing the # symbol in front of it, which should make it look like this:
+
+net.ipv4.ip_forward=1
 * `cat /etc/sysctl.conf` (23): Displays the contents of the system control file (optional, verification).
 * `sudo nano /etc/modules-load.d/` (24): Changes directory to the kernel modules directory.
 * `sudo nano /etc/modules-load.d/k8s.conf` (25): Creates a new file named k8s.conf to load required kernel modules for Kubernetes (optional, might be pre-configured).
