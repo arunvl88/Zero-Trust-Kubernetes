@@ -49,7 +49,7 @@ This section details the steps to install and configure Kubernetes on the contro
 
 While these steps provide a general guide, refer to the official Kubernetes documentation (https://kubernetes.io/docs/home/) for the most up-to-date and reliable information.
 
-## 1. System Updates and Verification (Commands 1-7, 37):
+## 1. System Updates and Verification:
 
 * `sudo apt update && sudo apt dist-upgrade` (1): Updates the package lists and upgrades existing packages.
 * `cd /etc/netplan/` (3): Changes directory to the network configuration directory.
@@ -62,7 +62,7 @@ Explanation:
 
 This section ensures your system is up-to-date and verifies the hostname configuration.
 
-## 2. Qemu Guest Agent Installation and Verification (Commands 8-12):
+## 2. Qemu Guest Agent Installation and Verification:
 
 * `sudo apt install qemu-guest-agent` (8): Installs the Qemu Guest Agent for improved communication between the virtual machine and Proxmox VE.
 * `dpkg -l | grep qemu-guest-agent` (9): Checks the installation status of the Qemu Guest Agent.
@@ -74,7 +74,7 @@ Explanation:
 
 This section installs and configures the Qemu Guest Agent to enhance communication and monitoring within the Proxmox VE environment.
 
-## 3. Containerd Installation and Configuration (Commands 13-18):
+## 3. Containerd Installation and Configuration:
 
 * `sudo apt install containerd` (13): Installs the containerd runtime, a core component for managing container images.
 * `systemctl status containerd` (14): Checks the status of the containerd service.
@@ -93,7 +93,7 @@ Explanation:
 
 This section installs and configures containerd, which is essential for running containerized applications like Kubernetes.
 
-## 4. System Configuration for Kubernetes (Commands 22-26):
+## 4. System Configuration for Kubernetes:
 
 * `sudo nano /etc/sysctl.conf` (22): Opens the system control file for editing (optional, advanced network configuration for Kubernetes).
   Within that file, look for the following line:
@@ -112,7 +112,7 @@ Explanation:
 This section might involve optional configuration steps for the kernel and system controls to optimize the environment for Kubernetes.
 
 
-## 5. Adding Kubernetes Repository and Installing Packages (Commands 38, 45-47, 51-52):
+## 5. Adding Kubernetes Repository and Installing Packages:
 
 * `cat /etc/os-release` (38): Displays the operating system release information (useful for verification).
 * `curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg` (45): Downloads the GPG key to verify the authenticity of Kubernetes packages.
@@ -123,22 +123,22 @@ This section might involve optional configuration steps for the kernel and syste
 ## Worker Nodes configuration for Kubernetes Cluster
 Once you've initialized the Kubernetes control plane on your master node, you can add worker nodes to scale your cluster. Here's a breakdown of the steps to prepare and join a worker node running on Proxmox VE:
 
-## 1. System Updates and Verification (Commands 6, 17):
+## 1. System Updates and Verification:
 
 * `sudo apt install qemu-guest-agent` (6): Installs the Qemu Guest Agent for improved communication with Proxmox VE. You might have already installed this on the control plane, but it's a good practice to ensure it's also present on worker nodes.
 * `sudo apt install containerd` (17): Installs containerd, a core component for managing container images on the worker node.
 
-## 2. Qemu Guest Agent Service Management (Commands 14-16):
+## 2. Qemu Guest Agent Service Management:
 
 * `sudo systemctl start qemu-guest-agent` (14): Starts the Qemu Guest Agent service on the worker node.
 * `sudo systemctl enable qemu-guest-agent` (15): Enables the Qemu Guest Agent service to start automatically on boot.
 * `sudo systemctl status qemu-guest-agent` (16): Checks the status of the Qemu Guest Agent service to ensure it's running properly.
-## 4. Containerd Configuration (Commands 19-24):
+## 4. Containerd Configuration:
 
 * `sudo mkdir /etc/containerd` (19): Creates a directory for containerd configuration files (if it doesn't exist).
 * `containerd config default | sudo tee /etc/containerd/config.toml` (20): Generates a default containerd configuration file.
 * Optional: You might need to edit the configuration file (`sudo nano /etc/containerd/config.toml` - command 22) for specific configurations, but the default settings usually work well.
-## 5. System Configuration for Kubernetes (Commands 25-28):
+## 5. System Configuration for Kubernetes:
 
 * Optional: You might need to adjust some system configurations for optimal Kubernetes performance. These commands are for verification and potential adjustments:
 * sudo nano /etc/sysctl.conf (26): Opens the system control file for editing (advanced configuration).
@@ -151,13 +151,13 @@ Uncomment that line by removing the # symbol in front of it, which should make i
 
 * `cat /etc/sysctl.conf | grep "ipv4"` (27): Shows lines related to IPv4 configuration in the system control file (optional, verification).
 * `sudo nano /etc/modules-load.d/k8s.conf` (28): Opens the kernel modules configuration file for editing (advanced configuration, might be pre-configured).
-## 6. Worker Node Rebooting (Optional, Command 29):
+## 6. Worker Node Rebooting:
 
 sudo reboot (29): Depending on your system configuration, a reboot might be necessary for the changes to take effect. Uncomment this command if needed.
-## 7. Adding Kubernetes Repository and Installing Packages (Commands 30-35):
+## 7. Adding Kubernetes Repository and Installing Packages:
 
-Commands 30-33: These commands add the official Kubernetes repository and download the GPG key to verify the authenticity of Kubernetes packages. The steps might differ slightly depending on your chosen Kubernetes provider (here, Google Kubernetes Engine - GKE). Refer to the official documentation for your specific provider for exact commands.
-sudo apt update (34): Updates the package lists to include Kubernetes packages after adding the new repository.
+* These commands add the official Kubernetes repository and download the GPG key to verify the authenticity of Kubernetes packages. The steps might differ slightly depending on your chosen Kubernetes provider (here, Google Kubernetes Engine - GKE). Refer to the official documentation for your specific provider for exact commands.
+* `sudo apt update` (34): Updates the package lists to include Kubernetes packages after adding the new repository.
 sudo apt install -y kubeadm=1.28.1-1.1 kubelet=1.28.1-1.1 kubectl=1.28.1-1.1 (35): Installs the required Kubernetes packages: kubeadm (not needed on worker nodes,
 
 
