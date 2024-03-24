@@ -114,14 +114,13 @@ This section might involve optional configuration steps for the kernel and syste
 
 ## 5. Adding Kubernetes Repository and Installing Packages:
 
-* `cat /etc/os-release` (38): Displays the operating system release information (useful for verification).
 * `curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg` (45): Downloads the GPG key to verify the authenticity of Kubernetes packages.
 * `echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list` (46): Adds the official Kubernetes repository to your system's package sources list.
 * `sudo apt update` (47, 51): Updates the package lists to include Kubernetes packages after adding the new repository.
 * `sudo apt install -y kubeadm=1.28.1-1.1 kubelet=1.28.1-1.1 kubectl=1.28.1-1.1` (52): Installs the required Kubernetes packages: kubeadm (for initializing the Kubernetes control plane), kubelet (for running containers on the node), and kubectl (for managing the Kubernetes cluster).
 
 ## Worker Nodes configuration for Kubernetes Cluster
-Once you've initialized the Kubernetes control plane on your master node, you can add worker nodes to scale your cluster. Here's a breakdown of the steps to prepare and join a worker node running on Proxmox VE:
+Once you've initialized the Kubernetes control plane on your master node, you can add worker nodes to scale your cluster. Repeat these steps on all nodes. Here's a breakdown of the steps to prepare and join a worker node running on Proxmox VE:
 
 ## 1. System Updates and Verification:
 
@@ -157,8 +156,10 @@ sudo reboot (29): Depending on your system configuration, a reboot might be nece
 ## 7. Adding Kubernetes Repository and Installing Packages:
 
 * These commands add the official Kubernetes repository and download the GPG key to verify the authenticity of Kubernetes packages. The steps might differ slightly depending on your chosen Kubernetes provider (here, Google Kubernetes Engine - GKE). Refer to the official documentation for your specific provider for exact commands.
-* `sudo apt update` (34): Updates the package lists to include Kubernetes packages after adding the new repository.
-sudo apt install -y kubeadm=1.28.1-1.1 kubelet=1.28.1-1.1 kubectl=1.28.1-1.1 (35): Installs the required Kubernetes packages: kubeadm (not needed on worker nodes,
+* `curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg` (45): Downloads the GPG key to verify the authenticity of Kubernetes packages.
+* `echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list` (46): Adds the official Kubernetes repository to your system's package sources list.
+* `sudo apt update` (47, 51): Updates the package lists to include Kubernetes packages after adding the new repository.
+* `sudo apt install -y kubeadm=1.28.1-1.1 kubelet=1.28.1-1.1 kubectl=1.28.1-1.1` (52): Installs the required Kubernetes packages: kubeadm (for initializing the Kubernetes control plane), kubelet (for running containers on the node), and kubectl (for managing the Kubernetes cluster).
 
 
 
