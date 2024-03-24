@@ -152,7 +152,7 @@ Uncomment that line by removing the # symbol in front of it, which should make i
 * `sudo nano /etc/modules-load.d/k8s.conf` (28): Opens the kernel modules configuration file for editing (advanced configuration, might be pre-configured).
 ## 6. Worker Node Rebooting:
 
-sudo reboot (29): Depending on your system configuration, a reboot might be necessary for the changes to take effect. Uncomment this command if needed.
+`sudo reboot` (29): Depending on your system configuration, a reboot might be necessary for the changes to take effect. Uncomment this command if needed.
 ## 7. Adding Kubernetes Repository and Installing Packages:
 
 * These commands add the official Kubernetes repository and download the GPG key to verify the authenticity of Kubernetes packages. The steps might differ slightly depending on your chosen Kubernetes provider (here, Google Kubernetes Engine - GKE). Refer to the official documentation for your specific provider for exact commands.
