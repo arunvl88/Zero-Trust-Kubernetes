@@ -194,4 +194,7 @@ kubectl configured to interact with your Kubernetes cluster.
 1. Create a tunnel using this guide: https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/create-remote-tunnel/
 2. Instead of running the command to install a connector you will select docker as the environment and copy just the token rather than the whole command.
 
-## 2. Copy the IP of the pod running nginx and cloudflared deployment:
+## 2. Deploy Nginx with Cloudflare Tunnel (file attached in this repository):
+
+Deploy the provided nginx-cloudflared.yaml file using kubectl:
+`kubectl apply -f nginx-cloudflared.yaml`
