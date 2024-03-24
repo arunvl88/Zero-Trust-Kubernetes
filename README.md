@@ -161,6 +161,20 @@ Uncomment that line by removing the # symbol in front of it, which should make i
 * `sudo apt update` (47, 51): Updates the package lists to include Kubernetes packages after adding the new repository.
 * `sudo apt install -y kubeadm=1.28.1-1.1 kubelet=1.28.1-1.1 kubectl=1.28.1-1.1` (52): Installs the required Kubernetes packages: kubeadm (for initializing the Kubernetes control plane), kubelet (for running containers on the node), and kubectl (for managing the Kubernetes cluster).
 
+## Adding Worker Nodes to Your Kubernetes Cluster
+Once you've initialized the Kubernetes control plane on your master node, you can add worker nodes to scale your cluster. Here's a breakdown of the steps to prepare and join a worker node running on Proxmox VE:
 
+## 1. Generate a Join Token on the Control Plane (on Kubernetes controller):
 
+Use the following command on the control plane node to generate a bootstrap token for worker nodes to join the cluster:
+
+`kubeadm token create --print-join-command`
+
+This command will generate a random token and display the full kubeadm join command that needs to be run on each worker node.
+
+## 2. Joining the Cluster on Worker Nodes:
+
+Copy the command generated in step 1 and run it on each nodes. The command will look like below:
+
+`kubeadm join --control-plane --token <your_worker_token> <control-plane-ip>:6443 --discovery-token-ca-cert-hash sha256:<long_hash_value>`
 
