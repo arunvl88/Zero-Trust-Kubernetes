@@ -36,9 +36,9 @@ Creating a Ubuntu Template:
 
 ## YouTube Video and article References:
 
-. Building a Ubuntu Template: https://www.youtube.com/watch?v=MJgIm03Jxdo by Learn Linux TV (https://www.youtube.com/@LearnLinuxTV)
+* Building a Ubuntu Template: https://www.youtube.com/watch?v=MJgIm03Jxdo by Learn Linux TV (https://www.youtube.com/@LearnLinuxTV)
 
-. Building a Kubernetes Cluster: https://www.youtube.com/watch?v=U1VzcjCB_sY 
+* Building a Kubernetes Cluster: https://www.youtube.com/watch?v=U1VzcjCB_sY 
 
 * https://www.learnlinux.tv/how-to-build-an-awesome-kubernetes-cluster-using-proxmox-virtual-environment/
 
