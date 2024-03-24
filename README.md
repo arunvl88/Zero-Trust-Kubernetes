@@ -208,5 +208,5 @@ The IP address under Service is a local IP of the pod. You can get the pod deplo
 
 `kubectl get pods -o wide`
 
-## Note: 
+### Note: 
 Pod Restart: When a pod restarts, for any reason (e.g., due to a crash, update, or manual deletion and recreation), it will typically be assigned a new IP address by the Kubernetes network plugin.
