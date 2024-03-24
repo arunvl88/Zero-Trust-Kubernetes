@@ -34,11 +34,13 @@ Creating a Ubuntu Template:
 
 ## Building a Kubernetes Cluster:
 
-## YouTube Video References:
+## YouTube Video and article References:
 
 . Building a Ubuntu Template: https://www.youtube.com/watch?v=MJgIm03Jxdo by Learn Linux TV (https://www.youtube.com/@LearnLinuxTV)
 
 . Building a Kubernetes Cluster: https://www.youtube.com/watch?v=U1VzcjCB_sY 
+
+* https://www.learnlinux.tv/how-to-build-an-awesome-kubernetes-cluster-using-proxmox-virtual-environment/
 
 ## Building a Kubernetes Cluster on the Control Plane Node
 This section details the steps to install and configure Kubernetes on the control plane node of your Proxmox VE lab. Be sure to replace v1.28.1 with the desired Kubernetes version if needed.
