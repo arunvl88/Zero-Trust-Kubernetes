@@ -82,6 +82,10 @@ This section installs and configures the Qemu Guest Agent to enhance communicati
 * `containerd config default | sudo tee /etc/containerd/config.toml` (16): Generates a default containerd configuration file.
 * `ls -l /etc/containerd/` (17): Lists files in the containerd configuration directory (useful for verification).
 * `sudo nano /etc/containerd/config.toml` (18): Opens the containerd configuration file for editing (optional, advanced configuration).
+  Within that file, find the following line of text:
+  [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options]
+  Underneath that, find the SystemdCgroup option and change it to true, which should look like this:
+  SystemdCgroup = true
 
 Explanation:
 
