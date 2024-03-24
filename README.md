@@ -125,26 +125,32 @@ Once you've initialized the Kubernetes control plane on your master node, you ca
 
 ## 1. System Updates and Verification (Commands 6, 17):
 
-sudo apt install qemu-guest-agent (6): Installs the Qemu Guest Agent for improved communication with Proxmox VE. You might have already installed this on the control plane, but it's a good practice to ensure it's also present on worker nodes.
-sudo apt install containerd (17): Installs containerd, a core component for managing container images on the worker node.
+* `sudo apt install qemu-guest-agent` (6): Installs the Qemu Guest Agent for improved communication with Proxmox VE. You might have already installed this on the control plane, but it's a good practice to ensure it's also present on worker nodes.
+* `sudo apt install containerd` (17): Installs containerd, a core component for managing container images on the worker node.
 
 ## 2. Qemu Guest Agent Service Management (Commands 14-16):
 
-sudo systemctl start qemu-guest-agent (14): Starts the Qemu Guest Agent service on the worker node.
-sudo systemctl enable qemu-guest-agent (15): Enables the Qemu Guest Agent service to start automatically on boot.
-sudo systemctl status qemu-guest-agent (16): Checks the status of the Qemu Guest Agent service to ensure it's running properly.
+* `sudo systemctl start qemu-guest-agent` (14): Starts the Qemu Guest Agent service on the worker node.
+* `sudo systemctl enable qemu-guest-agent` (15): Enables the Qemu Guest Agent service to start automatically on boot.
+* `sudo systemctl status qemu-guest-agent` (16): Checks the status of the Qemu Guest Agent service to ensure it's running properly.
 ## 4. Containerd Configuration (Commands 19-24):
 
-sudo mkdir /etc/containerd (19): Creates a directory for containerd configuration files (if it doesn't exist).
-containerd config default | sudo tee /etc/containerd/config.toml (20): Generates a default containerd configuration file.
-Optional: You might need to edit the configuration file (sudo nano /etc/containerd/config.toml - command 22) for specific configurations, but the default settings usually work well.
+* `sudo mkdir /etc/containerd` (19): Creates a directory for containerd configuration files (if it doesn't exist).
+* `containerd config default | sudo tee /etc/containerd/config.toml` (20): Generates a default containerd configuration file.
+* Optional: You might need to edit the configuration file (`sudo nano /etc/containerd/config.toml` - command 22) for specific configurations, but the default settings usually work well.
 ## 5. System Configuration for Kubernetes (Commands 25-28):
 
-free -m (25): Displays information about available memory (useful for checking resource availability).
-Optional: You might need to adjust some system configurations for optimal Kubernetes performance. These commands are for verification and potential adjustments:
-sudo nano /etc/sysctl.conf (26): Opens the system control file for editing (advanced configuration).
-cat /etc/sysctl.conf | grep "ipv4" (27): Shows lines related to IPv4 configuration in the system control file (optional, verification).
-sudo nano /etc/modules-load.d/k8s.conf (28): Opens the kernel modules configuration file for editing (advanced configuration, might be pre-configured).
+* Optional: You might need to adjust some system configurations for optimal Kubernetes performance. These commands are for verification and potential adjustments:
+* sudo nano /etc/sysctl.conf (26): Opens the system control file for editing (advanced configuration).
+  Within that file, look for the following line:
+
+#net.ipv4.ip_forward=1
+Uncomment that line by removing the # symbol in front of it, which should make it look like this:
+
+`net.ipv4.ip_forward=1`
+
+* `cat /etc/sysctl.conf | grep "ipv4"` (27): Shows lines related to IPv4 configuration in the system control file (optional, verification).
+* `sudo nano /etc/modules-load.d/k8s.conf` (28): Opens the kernel modules configuration file for editing (advanced configuration, might be pre-configured).
 ## 6. Worker Node Rebooting (Optional, Command 29):
 
 sudo reboot (29): Depending on your system configuration, a reboot might be necessary for the changes to take effect. Uncomment this command if needed.
