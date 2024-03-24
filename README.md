@@ -178,3 +178,20 @@ Copy the command generated in step 1 and run it on each nodes. The command will 
 
 `kubeadm join --control-plane --token <your_worker_token> <control-plane-ip>:6443 --discovery-token-ca-cert-hash sha256:<long_hash_value>`
 
+## Exposing Your Nginx Deployment with Cloudflare Tunnel on a Kubernetes Cluster
+This guide details how to install Cloudflare Tunnel on your Kubernetes cluster and configure it to expose your Nginx deployment publicly through Cloudflare's network.
+
+## Prerequisites:
+
+A functional Kubernetes cluster with Nginx deployed as an Ingress controller.
+A Cloudflare account with a registered domain name.
+kubectl configured to interact with your Kubernetes cluster.
+
+## Steps:
+
+## 1. Create a new tunnel on Cloudflare Dashboard:
+
+1. Create a tunnel using this guide: https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/create-remote-tunnel/
+2. Instead of running the command to install a connector you will select docker as the environment and copy just the token rather than the whole command.
+
+## 2. Copy the IP of the pod running nginx and cloudflared deployment:
