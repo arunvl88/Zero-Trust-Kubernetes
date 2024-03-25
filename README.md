@@ -163,7 +163,7 @@ Uncomment that line by removing the # symbol in front of it, which should make i
 
 `net.ipv4.ip_forward=1`
 
-* `cat /etc/sysctl.conf | grep "ipv4"` (27): Shows lines related to IPv4 configuration in the system control file (optional, verification).
+* `cat /etc/sysctl.conf | grep "ipv4"` (27): Verify to make sure its uncommented (optional, verification).
 * `sudo nano /etc/modules-load.d/k8s.conf` (28): Opens the kernel modules configuration file for editing (advanced configuration, might be pre-configured).
 ## 6. Worker Node Rebooting:
 
