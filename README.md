@@ -231,6 +231,13 @@ This YAML file defines two resources for running an Nginx container with a Cloud
       This service exposes the Nginx container running inside the pods through a NodePort. The NodePort allows external traffic to reach the Nginx container from outside the   
       Kubernetes cluster using a randomly assigned port on a worker node.
 
+How it Works:
+
+1. The deployment creates pods with the Nginx and Cloudflare tunnel containers.
+2. The Cloudflare tunnel container establishes a tunnel to your Cloudflare account.
+3. The Service exposes the Nginx container on a NodePort.
+4. You can access your Nginx application from outside the cluster using the following format: <Node IP Address>:<NodePort>. Replace <Node IP Address> with the IP address of one of your worker nodes and <NodePort> with the actual port number assigned by Kubernetes (obtained using kubectl get service nginx-with-tunnel-service).
+
 ## 3. Add a route on the Cloudflare Tunnel Dashboard:
 Login to Cloudflare Zero Trust dashboard > Network > Tunnels > Click on the 3 dot tab of the tunnel entry > select 'configure'> Navigate to 'Public Hostname' > Add 'Public Hostaname'
 
