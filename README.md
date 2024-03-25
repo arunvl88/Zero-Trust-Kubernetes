@@ -159,6 +159,12 @@ Uncomment that line by removing the # symbol in front of it, which should make i
 * `sudo apt update` (47, 51): Updates the package lists to include Kubernetes packages after adding the new repository.
 * `sudo apt install -y kubeadm=1.28.1-1.1 kubelet=1.28.1-1.1 kubectl=1.28.1-1.1` (52): Installs the required Kubernetes packages: kubeadm (for initializing the Kubernetes control plane), kubelet (for running containers on the node), and kubectl (for managing the Kubernetes cluster).
 
+## 8. Initialize our Kubernetes cluster
+So long as you have everything complete so far, you can initialize the Kubernetes cluster now. Be sure to customize the first IP address shown here (not the second) and also change the name to match the name of your controller.
+
+`sudo kubeadm init --control-plane-endpoint=10.0.0.145 --node-name k8s-ctrlr --pod-network-cidr=10.244.0.0/16`
+After the initialization finishes, you should see at least four commands printed within the output.
+
 ## Adding Worker Nodes to Your Kubernetes Cluster
 Once you've initialized the Kubernetes control plane on your master node, you can add worker nodes to scale your cluster. Here's a breakdown of the steps to prepare and join a worker node running on Proxmox VE:
 
