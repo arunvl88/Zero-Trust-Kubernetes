@@ -217,6 +217,20 @@ Deploy the provided nginx-cloudflared.yaml file using kubectl:
 
 I copied yaml file to the controller node and ran the command in controller. 
 
+## Explanation:
+
+This YAML file defines two resources for running an Nginx container with a Cloudflare tunnel in a Kubernetes cluster:
+
+### 1. Deployment:
+      This deployment creates pods with two containers:
+
+      * Nginx: This container runs the Nginx web server, serving content on port 80.
+      * Cloudflare tunnel injector: This container injects the Cloudflare tunnel functionality using the cloudflared command and your tunnel token (replace "tunnel-token" with     
+        your actual token).
+### 2. Service:
+      This service exposes the Nginx container running inside the pods through a NodePort. The NodePort allows external traffic to reach the Nginx container from outside the   
+      Kubernetes cluster using a randomly assigned port on a worker node.
+
 ## 3. Add a route on the Cloudflare Tunnel Dashboard:
 Login to Cloudflare Zero Trust dashboard > Network > Tunnels > Click on the 3 dot tab of the tunnel entry > select 'configure'> Navigate to 'Public Hostname' > Add 'Public Hostaname'
 
