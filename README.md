@@ -1,5 +1,7 @@
 # Kubernetes-Cloudflared
-Home Kubernetes lab exposed to public via Cloudflare Tunnel
+## Setting Up a Home Kubernetes Lab with Nginx and Cloudflare Tunnel
+
+This guide outlines the steps to build a home Kubernetes lab environment on a Dell server with 16 GB of RAM. You'll deploy an Nginx web server container and configure it to be accessible externally through a Cloudflare Tunnel.
 
 <img width="1402" alt="Pasted Graphic" src="https://github.com/arunvl88/Kubernetes-Cloudflared/assets/7003647/37a2889e-f49a-46ee-b429-99395f083412">
 
