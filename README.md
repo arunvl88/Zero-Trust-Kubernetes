@@ -215,6 +215,8 @@ kubectl configured to interact with your Kubernetes cluster.
 Deploy the provided nginx-cloudflared.yaml file using kubectl:
 `kubectl apply -f nginx-cloudflared.yaml`
 
+I copied yaml file to the controller node and ran the command in controller. 
+
 ## 3. Add a route on the Cloudflare Tunnel Dashboard:
 Login to Cloudflare Zero Trust dashboard > Network > Tunnels > Click on the 3 dot tab of the tunnel entry > select 'configure'> Navigate to 'Public Hostname' > Add 'Public Hostaname'
 
