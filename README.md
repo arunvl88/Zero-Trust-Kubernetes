@@ -26,15 +26,9 @@ This section outlines the process for creating a Ubuntu template and building a 
 ## Important Note:
 
 While YouTube videos can be a valuable resource, it's crucial to reference the official Kubernetes documentation (https://kubernetes.io/docs/home/) for the most up-to-date and reliable information.
-Creating a Ubuntu Template:
+## Prerequisites:
 
-1. Base Ubuntu Image: Begin by downloading a base Ubuntu image suitable for your Kubernetes cluster. Refer to the official Ubuntu documentation (https://cloud-images.ubuntu.com/) for available options.
-
-2. Customization (Optional): You can customize the downloaded image by installing essential packages (e.g., Docker, kubectl) and configuring basic settings within the virtual machine using tools like apt.
-
-3. Template Creation: Once prepared, convert the customized Ubuntu image into a Proxmox VE template for easy deployment of worker nodes in your Kubernetes cluster. Utilize the Proxmox VE web interface or command-line tools for template creation.
-
-## Building a Kubernetes Cluster:
+Ubuntu Virtual Machines: It's assumed you have created Ubuntu virtual machines for your Kubernetes cluster nodes. You can refer to the following YouTube videos
 
 ## YouTube Video and article References:
 
@@ -43,6 +37,8 @@ Creating a Ubuntu Template:
 * Building a Kubernetes Cluster: https://www.youtube.com/watch?v=U1VzcjCB_sY 
 
 * https://www.learnlinux.tv/how-to-build-an-awesome-kubernetes-cluster-using-proxmox-virtual-environment/
+
+## Building a Kubernetes Cluster:
 
 ## Building a Kubernetes Cluster on the Control Plane Node
 This section details the steps to install and configure Kubernetes on the control plane node of your Proxmox VE lab. Be sure to replace v1.28.1 with the desired Kubernetes version if needed.
