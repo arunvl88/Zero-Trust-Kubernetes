@@ -220,7 +220,8 @@ I copied yaml file to the controller node and ran the command in controller.
 ## 3. Add a route on the Cloudflare Tunnel Dashboard:
 Login to Cloudflare Zero Trust dashboard > Network > Tunnels > Click on the 3 dot tab of the tunnel entry > select 'configure'> Navigate to 'Public Hostname' > Add 'Public Hostaname'
 
-<img width="1698" alt="image" src="https://github.com/arunvl88/Kubernetes-Cloudflared/assets/7003647/f77111d2-238a-4c96-ad23-822f3043b96c">
+<img width="1703" alt="image" src="https://github.com/arunvl88/Kubernetes-Cloudflared/assets/7003647/71e2dd16-4722-4043-bf9d-092906b17c33">
+
 
 The IP address under Service is a local IP of the pod. You can get the pod deployment running nginx+cloudflared using the following command:
 
