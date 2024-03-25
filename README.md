@@ -223,9 +223,11 @@ Login to Cloudflare Zero Trust dashboard > Network > Tunnels > Click on the 3 do
 <img width="1703" alt="image" src="https://github.com/arunvl88/Kubernetes-Cloudflared/assets/7003647/71e2dd16-4722-4043-bf9d-092906b17c33">
 
 
-The IP address under Service is a local IP of the pod. You can get the pod deployment running nginx+cloudflared using the following command:
+`<Node IP Address>:<NodePort>`
 
-`kubectl get pods -o wide`
+* Replace <Node IP Address> with the IP address of one of your Kubernetes worker nodes (obtained from your cloud provider console or using kubectl get nodes).
+* Replace <NodePort> with the actual NodePort value you obtained from the output. You can get a NodePort by running the following command:
+  `kubectl get service nginx-with-tunnel-service`
+  
 
-### Note: 
-Pod Restart: When a pod restarts, for any reason (e.g., due to a crash, update, or manual deletion and recreation), it will typically be assigned a new IP address by the Kubernetes network plugin unless the static IP's are assigned.
+
