@@ -231,7 +231,7 @@ This YAML file defines two resources for running an Nginx container with a Cloud
       This service exposes the Nginx container running inside the pods through a NodePort. The NodePort allows external traffic to reach the Nginx container from outside the   
       Kubernetes cluster using a randomly assigned port on a worker node.
 
-How it Works:
+### How it Works:
 
 1. The deployment creates pods with the Nginx and Cloudflare tunnel containers.
 2. The Cloudflare tunnel container establishes a tunnel to your Cloudflare account.
