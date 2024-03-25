@@ -123,6 +123,17 @@ So long as you have everything complete so far, you can initialize the Kubernete
 `sudo kubeadm init --control-plane-endpoint=10.0.0.145 --node-name k8s-ctrlr --pod-network-cidr=10.244.0.0/16`
 After the initialization finishes, you should see at least four commands printed within the output.
 
+* `sudo`: Initiates the command with elevated privileges for administrative tasks.
+* `kubeadm init`: The core command used to initialize a Kubernetes cluster on the current node.
+* `--control-plane-endpoint`=10.0.0.145:
+  * Sets the API server endpoint, which is the publicly reachable address worker nodes will use to communicate with the control plane.
+  * In this example, it's set to 10.0.0.145. This could be the master node's public IP address, a hostname resolving to the IP, or a load balancer address for high availability setups.
+* `--node-name=k8s-ctrlr`:
+Assigns a unique hostname (k8s-ctrlr) to this node within the cluster. This hostname helps identify the control plane node among other cluster members.
+* `--pod-network-cidr=10.244.0.0/16`:
+  * Defines the Pod Network CIDR (Cluster IP Range) used for allocating IP addresses to pods within the cluster.
+  * Here, the CIDR block is set to 10.244.0.0/16, indicating that pods will be assigned IP addresses from this range.
+
 ## Worker Nodes configuration for Kubernetes Cluster
 Once you've initialized the Kubernetes control plane on your master node, you can add worker nodes to scale your cluster. Repeat these steps on all nodes. Here's a breakdown of the steps to prepare and join a worker node running on Proxmox VE:
 
