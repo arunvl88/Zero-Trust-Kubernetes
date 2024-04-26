@@ -1,4 +1,4 @@
-# Kubernetes-Cloudflared
+# Zero Trust lab with Kubernetes
 ## Setting Up a Home Kubernetes Lab with Nginx and Cloudflare Tunnel
 
 This guide outlines the steps to build a home Kubernetes lab environment on a Dell server with 16 GB of RAM. You'll deploy an Nginx web server container and configure it to be accessible externally through a Cloudflare Tunnel.
