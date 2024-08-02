@@ -278,10 +278,10 @@ Replace <deployment-name> with the name of your deployment and <namespace> with 
 Replace <label-selector> with the appropriate label for your deployment's pods.
 
     
-    ```
+
     kubectl describe pods -l <label-selector> -n <namespace>
     
-    ```
+   
     
 - To check the logs of your containers:
 
@@ -297,10 +297,10 @@ Replace <pod-name> with the name of one of your pods.
     
 - If the pods are running, you can exec into them to further investigate:
     
-    ```
+  
     kubectl exec -it <pod-name> -c cloudflared -n <namespace> -- /bin/sh
     kubectl exec -it <pod-name> -c nginx -n <namespace> -- /bin/sh
     
-    ```
+   
     
     
