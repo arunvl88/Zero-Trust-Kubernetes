@@ -252,7 +252,6 @@ Login to Cloudflare Zero Trust dashboard > Network > Tunnels > Click on the 3 do
 - First, check the status of all deployments:
     
     ```
-    Copy
     kubectl get deployments --all-namespaces
     
     ```
@@ -260,7 +259,6 @@ Login to Cloudflare Zero Trust dashboard > Network > Tunnels > Click on the 3 do
 - Then, check the status of all pods:
     
     ```
-    Copy
     kubectl get pods --all-namespaces
     
     ```
@@ -270,7 +268,6 @@ Login to Cloudflare Zero Trust dashboard > Network > Tunnels > Click on the 3 do
 Replace <deployment-name> with the name of your deployment and <namespace> with the namespace it's in (if not in the default namespace).
     
     ```
-    Copy
     kubectl describe deployment <deployment-name> -n <namespace>
     
     ```
@@ -280,7 +277,6 @@ Replace <deployment-name> with the name of your deployment and <namespace> with 
 Replace <label-selector> with the appropriate label for your deployment's pods.
     
     ```
-    Copy
     kubectl describe pods -l <label-selector> -n <namespace>
     
     ```
@@ -290,7 +286,6 @@ Replace <label-selector> with the appropriate label for your deployment's pods.
 Replace <pod-name> with the name of one of your pods.
     
     ```
-    Copy
     kubectl logs <pod-name> -c cloudflared -n <namespace>
     kubectl logs <pod-name> -c nginx -n <namespace>
     
@@ -299,7 +294,6 @@ Replace <pod-name> with the name of one of your pods.
 - If the pods are running, you can exec into them to further investigate:
     
     ```
-    Copy
     kubectl exec -it <pod-name> -c cloudflared -n <namespace> -- /bin/sh
     kubectl exec -it <pod-name> -c nginx -n <namespace> -- /bin/sh
     
