@@ -266,6 +266,7 @@ Login to Cloudflare Zero Trust dashboard > Network > Tunnels > Click on the 3 do
 - To get more detailed information about your specific deployment, use:
 
 Replace <deployment-name> with the name of your deployment and <namespace> with the namespace it's in (if not in the default namespace).
+
     
     ```
     kubectl describe deployment <deployment-name> -n <namespace>
@@ -275,6 +276,7 @@ Replace <deployment-name> with the name of your deployment and <namespace> with 
 - To see detailed information about the pods in your deployment:
 
 Replace <label-selector> with the appropriate label for your deployment's pods.
+
     
     ```
     kubectl describe pods -l <label-selector> -n <namespace>
@@ -284,6 +286,7 @@ Replace <label-selector> with the appropriate label for your deployment's pods.
 - To check the logs of your containers:
 
 Replace <pod-name> with the name of one of your pods.
+
     
     ```
     kubectl logs <pod-name> -c cloudflared -n <namespace>
