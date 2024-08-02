@@ -288,11 +288,11 @@ Replace <label-selector> with the appropriate label for your deployment's pods.
 Replace <pod-name> with the name of one of your pods.
 
     
-    ```
+   
     kubectl logs <pod-name> -c cloudflared -n <namespace>
     kubectl logs <pod-name> -c nginx -n <namespace>
     
-    ```
+  
     
     
 - If the pods are running, you can exec into them to further investigate:
