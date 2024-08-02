@@ -294,6 +294,7 @@ Replace <pod-name> with the name of one of your pods.
     
     ```
     
+    
 - If the pods are running, you can exec into them to further investigate:
     
     ```
@@ -301,4 +302,5 @@ Replace <pod-name> with the name of one of your pods.
     kubectl exec -it <pod-name> -c nginx -n <namespace> -- /bin/sh
     
     ```
+    
     
