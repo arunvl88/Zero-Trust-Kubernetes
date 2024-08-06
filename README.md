@@ -301,6 +301,93 @@ Replace <pod-name> with the name of one of your pods.
     kubectl exec -it <pod-name> -c cloudflared -n <namespace> -- /bin/sh
     kubectl exec -it <pod-name> -c nginx -n <namespace> -- /bin/sh
     
-   
+
+
+### Check the Status of the Pods
+
+First, check the status of the pods created by the deployment:
+
+```bash
+bashCopy code
+kubectl get pods -l app=nginx-with-tunnel
+
+```
+
+### Describe the Pods
+
+To get detailed information about the pods, including events that might indicate why they are not ready, use the `describe` command:
+
+```bash
+bashCopy code
+kubectl describe pod <pod-name>
+
+```
+
+Replace `<pod-name>` with the actual name of the pod you got from the previous command.
+
+### Check the Logs of the Containers
+
+To see the logs for a specific container in a pod, use the `logs` command:
+
+```bash
+bashCopy code
+kubectl logs <pod-name> -c <container-name>
+
+```
+
+If there is only one container in the pod, you can omit the `-c <container-name>` part.
+
+### Restart the Deployment
+
+If you want to restart the deployment, you can delete the pods, and Kubernetes will automatically recreate them:
+
+```bash
+bashCopy code
+kubectl delete pod -l app=nginx-with-tunnel
+
+```
+
+Alternatively, you can force a redeployment by updating the deployment (e.g., by changing an annotation):
+
+```bash
+bashCopy code
+kubectl annotate deployment nginx-with-tunnel kubernetes.io/change-cause="Redeployment" --overwrite
+
+```
+
+### Step-by-Step Example
+
+1. **Check Pods:**
     
+    ```bash
+    bashCopy code
+    kubectl get pods -l app=nginx-with-tunnel
+    
+    ```
+    
+2. **Describe Pods:**
+    
+    ```bash
+    bashCopy code
+    kubectl describe pod <pod-name>
+    
+    ```
+    
+3. **Check Logs:**
+    
+    ```bash
+    bashCopy code
+    kubectl logs <pod-name>
+    
+    ```
+    
+4. **Restart Deployment (if needed):**
+    
+    ```bash
+    bashCopy code
+    kubectl delete pod -l app=nginx-with-tunnel
+    
+    ```
+    
+5. **Force Redeployment (if needed):**
     
