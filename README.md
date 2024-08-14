@@ -308,7 +308,6 @@ Replace <pod-name> with the name of one of your pods.
 First, check the status of the pods created by the deployment:
 
 ```bash
-bashCopy code
 kubectl get pods -l app=nginx-with-tunnel
 
 ```
@@ -318,7 +317,6 @@ kubectl get pods -l app=nginx-with-tunnel
 To get detailed information about the pods, including events that might indicate why they are not ready, use the `describe` command:
 
 ```bash
-bashCopy code
 kubectl describe pod <pod-name>
 
 ```
@@ -330,7 +328,6 @@ Replace `<pod-name>` with the actual name of the pod you got from the previous c
 To see the logs for a specific container in a pod, use the `logs` command:
 
 ```bash
-bashCopy code
 kubectl logs <pod-name> -c <container-name>
 
 ```
@@ -342,7 +339,6 @@ If there is only one container in the pod, you can omit the `-c <container-name>
 If you want to restart the deployment, you can delete the pods, and Kubernetes will automatically recreate them:
 
 ```bash
-bashCopy code
 kubectl delete pod -l app=nginx-with-tunnel
 
 ```
@@ -350,7 +346,6 @@ kubectl delete pod -l app=nginx-with-tunnel
 Alternatively, you can force a redeployment by updating the deployment (e.g., by changing an annotation):
 
 ```bash
-bashCopy code
 kubectl annotate deployment nginx-with-tunnel kubernetes.io/change-cause="Redeployment" --overwrite
 
 ```
@@ -360,7 +355,6 @@ kubectl annotate deployment nginx-with-tunnel kubernetes.io/change-cause="Redepl
 1. **Check Pods:**
     
     ```bash
-    bashCopy code
     kubectl get pods -l app=nginx-with-tunnel
     
     ```
@@ -368,7 +362,6 @@ kubectl annotate deployment nginx-with-tunnel kubernetes.io/change-cause="Redepl
 2. **Describe Pods:**
     
     ```bash
-    bashCopy code
     kubectl describe pod <pod-name>
     
     ```
@@ -376,7 +369,6 @@ kubectl annotate deployment nginx-with-tunnel kubernetes.io/change-cause="Redepl
 3. **Check Logs:**
     
     ```bash
-    bashCopy code
     kubectl logs <pod-name>
     
     ```
@@ -384,7 +376,6 @@ kubectl annotate deployment nginx-with-tunnel kubernetes.io/change-cause="Redepl
 4. **Restart Deployment (if needed):**
     
     ```bash
-    bashCopy code
     kubectl delete pod -l app=nginx-with-tunnel
     
     ```
