@@ -382,7 +382,7 @@ kubectl annotate deployment nginx-with-tunnel kubernetes.io/change-cause="Redepl
     
 5. **Force Redeployment (if needed):**
 
-## Kubernetes IP address ranges 
+## Kubernetes Network - IP address ranges 
 Kubernetes clusters require to allocate non-overlapping IP addresses for Pods, Services and Nodes, from a range of available addresses configured in the following components:
 
 The network plugin is configured to assign IP addresses to Pods.
